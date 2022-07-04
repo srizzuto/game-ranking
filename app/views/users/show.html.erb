@@ -1,0 +1,10 @@
+
+<div class="m-5">
+  <h1 class="mb-5"> User's Info </h1>
+  <p><b>Username:</b> <%= @user.username %></p>
+  <p><b>Email:</b> <%= @user.email %></p>
+  <p><b>Game 1 vote:</b> <%= @user.game1 %></p>
+  <p><b>Game 2 vote:</b> <%= @user.game2 %></p>
+
+  <%= link_to "<< GO BACK", users_path %>
+</div>

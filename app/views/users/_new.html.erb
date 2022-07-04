@@ -1,0 +1,7 @@
+  <%= form_with model: @user, class: "d-flex justify-content-between"  do |form| %>
+    <%= form.text_field :username, class: "form-control me-2", placeholder: "Username" %>
+    <%= form.text_field :email , class: "form-control me-2", placeholder: "Email" %>
+    <%= form.select :game1, User::games, { include_blank: "Select Game 1" }, class: "form-select me-2" %> 
+    <%= form.select :game2, User::games, { include_blank: "Select Game 2" }, class: "form-select me-2" %> 
+    <%= form.submit "Rank'em", class: "btn btn-primary" %>
+  <% end %>
