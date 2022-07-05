@@ -21,12 +21,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def votes
-    @games1 = User.all.group(:game1).count
-    @games2 = User.all.group(:game2).count
-    @total_games = @games1.merge!(@games2) { |k, o, n| o + n }
-  end
-  
 private
   def user_params
     params.require(:user).permit(:username, :email, :game1, :game2)
