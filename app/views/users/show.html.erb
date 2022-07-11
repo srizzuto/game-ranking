@@ -1,10 +1,24 @@
+<div class="container">
+  <h1 class="my-5 mx-5"> User's Info </h1>
+  <div class="d-flex">
+    <div class="w-50">
+      <%= image_tag @user.avatar, size: '300x300', class: "rounded-circle mx-auto d-block mx-auto"%>
+      <p class="text-center mt-5"><b>Username:</b> <%= @user.username %></p>
+      <p class="text-center"><b>Email:</b> <%= @user.email %></p>
+    </div>
+    <div class="w-50">
+      <p class="fs-4"><b>Game 1 vote:</b> <%= @user.votes.first.name %></p>
+      <p class="mx-3"><b>Graphics:</b> <%= @user.votes.first.graphics %></p>
+      <p class="mx-3"><b>Story:</b> <%= @user.votes.first.story %></p>
+      <p class="mx-3"><b>Challenge:</b> <%= @user.votes.first.challenge %></p>
+      <p class="mx-3 text-danger fs-5"><b>Average:</b> <%= @user.votes.first.average.round(2) %></p>
+      <p class="fs-4"><b>Game 2 vote:</b> <%= @user.votes.last.name %></p>
+      <p class="mx-3"><b>Graphics:</b> <%= @user.votes.last.graphics %></p>
+      <p class="mx-3"><b>Story:</b> <%= @user.votes.last.story %></p>
+      <p class="mx-3"><b>Challenge:</b> <%= @user.votes.last.challenge %></p>
+      <p class="mx-3 text-danger fs-5"><b>Average:</b> <%= @user.votes.last.average.round(2) %></p>
 
-<div class="m-5">
-  <h1 class="mb-5"> User's Info </h1>
-  <p><b>Username:</b> <%= @user.username %></p>
-  <p><b>Email:</b> <%= @user.email %></p>
-  <p><b>Game 1 vote:</b> <%= @user.game1 %></p>
-  <p><b>Game 2 vote:</b> <%= @user.game2 %></p>
-
+    </div>
+  </div>
   <%= link_to "<< GO BACK", users_path %>
 </div>

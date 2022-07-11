@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
-  require 'csv'
 
   def index
     @users = User.all
     @user = User.new
+    2.times do
+      @user.votes.build
+    end
   end
 
   def create
@@ -23,6 +25,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:username, :email, :game1, :game2)
+    params.require(:user).permit(:username, :email, :avatar, votes_attributes: [:name, :graphics, :story, :challenge, :average])
   end
 end

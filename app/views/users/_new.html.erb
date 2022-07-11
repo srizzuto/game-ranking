@@ -1,7 +1,16 @@
-  <%= form_with model: @user, class: "d-flex justify-content-between"  do |form| %>
-    <%= form.text_field :username, class: "form-control me-2", placeholder: "Username" %>
-    <%= form.text_field :email , class: "form-control me-2", placeholder: "Email" %>
-    <%= form.select :game1, User::games, { include_blank: "Select Game 1" }, class: "form-select me-2" %> 
-    <%= form.select :game2, User::games, { include_blank: "Select Game 2" }, class: "form-select me-2" %> 
-    <%= form.submit "Rank'em", class: "btn btn-primary" %>
+  <%= form_with model: @user do |form| %>
+    <%= form.text_field :username, class: "form-control mb-2", placeholder: "Username" %>
+    <%= form.text_field :email , class: "form-control mb-2", placeholder: "Email" %>
+    <%= form.label :avatar, "Profile picture:", class: "mx-2" %>
+    <%= form.file_field :avatar %>
+    <%= form.fields_for :votes do |vote_builder| %>
+        <%= vote_builder.select :name, Vote::games, { include_blank: "Select Game" }, class: "form-select my-4" %> 
+        <%= vote_builder.label :graphics, "Graphics:", class: "mx-2" %>
+        <%= vote_builder.select :graphics, options_for_select(1..10), class: "form-select mx-2" %>
+        <%= vote_builder.label :story, "Story:", class: "mx-2" %>
+        <%= vote_builder.select :story, options_for_select(1..10), class: "form-select mx-2" %>
+        <%= vote_builder.label :challenge, "Challenge:", class: "mx-2" %>
+        <%= vote_builder.select :challenge, options_for_select(1..10), class: "form-select mx-2" %>
+    <% end %>
+    <%= form.submit "Rank'em", class: "btn btn-primary float-end me-5" %>
   <% end %>
